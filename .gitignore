@@ -1,0 +1,12 @@
+# dbt
+target/
+dbt_packages/
+logs/
+.user.yml
+
+# Python env
+dbt-env/
+
+# Sensitive files — NEVER push these
+*.json
+profiles.yml

@@ -1,0 +1,51 @@
+version: 2
+
+models:
+  - name: int_payment_enriched
+    description: "Payments enriched with install date for 90-day LTV window."
+
+  - name: int_channel_metrics
+    description: "CAC and CLV metrics by acquisition channel."
+    columns:
+      - name: channel
+        tests:
+          - unique
+          - not_null
+      - name: cac_proxy
+        description: "Revenue per paying user per channel"
+      - name: clv_90d
+        description: "90-day revenue per paying user"
+      - name: clv_arppu_x_retention
+        description: "Predicted CLV per install"
+
+  - name: mart_user_marketing
+    description: "One row per user - acquisition, engagement, monetisation and channel KPIs."
+    columns:
+      - name: profile_id
+        tests:
+          - unique
+          - not_null
+      - name: is_payer
+        description: "1 = paying user, 0 = freemium"
+        tests:
+          - accepted_values:
+              values: [0, 1]
+              quote: false 
+      - name: revenue_90d
+        description: "Revenue in first 90 days"
+      - name: clv_arppu_x_retention
+        description: "Predicted CLV per install"
+
+  - name: mart_cohort_retention
+    description: "Weekly retention and revenue by install cohort and platform."
+    columns:
+      - name: install_week
+        tests:
+          - not_null
+      - name: retained_users
+        tests:
+          - not_null
+      - name: retention_rate
+        description: "Retained users / cohort size"
+      - name: revenue_per_retained_user
+        description: "Weekly revenue / retained users"
