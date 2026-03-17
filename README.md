@@ -12,9 +12,9 @@ Built with **dbt** and **BigQuery**, exposed to **Tableau** for reporting.
 A free-to-play music education app acquires users across multiple marketing
 channels. This pipeline answers three core business questions:
 
-- **Which channels deliver the best return?** — CAC and LTV by acquisition channel
-- **Are users sticking around?** — Weekly retention curves by platform and cohort
-- **How valuable are retained users?** — Revenue per retained user over time
+- **Which channels deliver the best return?** - CAC and LTV by acquisition channel
+- **Are users sticking around?** - Weekly retention curves by platform and cohort
+- **How valuable are retained users?** - Revenue per retained user over time
 
 ---
 
@@ -40,7 +40,7 @@ Tableau Dashboard
 | 90-day LTV | Revenue per user in first 90 days |
 | CAC Proxy | Revenue per paying user per channel |
 | Predicted CLV | Total revenue per install per channel |
-| Retention Rate | Active users / cohort size per week |
+| Retention Rate | Active users/cohort size per week |
 | Revenue per Retained User | Weekly revenue / retained users |
 
 ---
