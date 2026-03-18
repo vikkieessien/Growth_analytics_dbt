@@ -66,15 +66,16 @@ weekly_revenue as (
     where weeks_since_install between 0 and 12
     group by 1, 2, 3
 ),
-final as (
+
+pre_final as (
     select
         r.install_week,
         r.weeks_since_install,
         r.signup_platform,
         r.retained_users,
         cs.cohort_size,
-        safe_divide(r.retained_users, cs.cohort_size)          as retention_rate, -- bigqQuery function nullif
-        coalesce(wr.weekly_revenue, 0)                         as weekly_revenue,
+        safe_divide(r.retained_users, cs.cohort_size)                 as retention_rate,
+        coalesce(wr.weekly_revenue, 0)                                as weekly_revenue,
         safe_divide(coalesce(wr.weekly_revenue, 0), r.retained_users) as revenue_per_retained_user
     from retained r
     left join cohort_size cs
@@ -84,6 +85,33 @@ final as (
         on r.install_week        = wr.install_week
        and r.weeks_since_install = wr.weeks_since_install
        and r.signup_platform     = wr.signup_platform
+),
+
+final as (
+    select
+        install_week,
+        weeks_since_install,
+        signup_platform,
+        retained_users,
+        cohort_size,
+        retention_rate,
+        weekly_revenue,
+        revenue_per_retained_user,
+
+        -- cumulative revenue builds week over week per cohort
+        sum(weekly_revenue) over (
+            partition by install_week, signup_platform
+            order by weeks_since_install
+            rows between unbounded preceding and current row) as cumulative_revenue,
+
+        -- observed CLV = cumulative revenue / cohort size
+        safe_divide(
+            sum(weekly_revenue) over (partition by install_week, signup_platform 
+            order by weeks_since_install rows between unbounded preceding and current row
+            ), cohort_size ) as clv_observed
+
+    from pre_final
 )
+
 select * from final
 order by install_week, weeks_since_install, signup_platform
