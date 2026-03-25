@@ -67,9 +67,9 @@ dbt test    # run quality checks
 
 ## Dashboard
 
-*Coming soon — Tableau dashboard connecting directly to BigQuery mart tables.*
+[View Live Dashboard](https://public.tableau.com/app/profile/vikkie/viz/MarketingGrowthAnalysis/GrowthAnalytics)
 
----
+![Dashboard](Marketing%20Growth%20Analysis.png)
 
 ## Author
 
