@@ -67,9 +67,9 @@ dbt test    # run quality checks
 
 ## Dashboard
 
-[View Live Dashboard](https://public.tableau.com/app/profile/vikkie/viz/MarketingGrowthAnalysis/GrowthAnalytics)
+[View Live Dashboard](https://public.tableau.com/app/profile/vikkie/viz/MarketingGrowthAnalysis/MarketingGrowthAnalysis)
 
-![Dashboard](Marketing%20Growth%20Analysis.png)
+![Dashboard](Marketing_Growth_Analysis.png)
 
 ## Author
 
