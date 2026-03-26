@@ -1,7 +1,7 @@
 # Growth Analytics dbt Project
 
 A marketing analytics pipeline that transforms raw app data into
-business-ready insights on user acquisition, retention and revenue.
+business-ready insights on user acquisition, retention, and revenue.
 
 Built with **dbt** and **BigQuery**, exposed to **Tableau** for reporting.
 
