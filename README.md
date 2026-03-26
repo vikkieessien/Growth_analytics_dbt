@@ -47,9 +47,9 @@ Tableau Dashboard
 
 ## Tech Stack
 
-- **dbt** — transformation and testing
-- **BigQuery** — cloud data warehouse
-- **Tableau** — dashboard and visualisation
+- **dbt** - transformation and testing
+- **BigQuery** - cloud data warehouse
+- **Tableau** - dashboard and visualisation
 
 ---
 
@@ -73,5 +73,5 @@ dbt test    # run quality checks
 
 ## Author
 
-Victoria Essien — Data Analyst
+Victoria Essien - Data Analyst
 [GitHub](https://github.com/vikkieessien)
