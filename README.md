@@ -73,5 +73,5 @@ dbt test    # run quality checks
 
 ## Author
 
-Victoria Essien - Data Analyst
+Victoria Essien — Analytics Engineer
 [GitHub](https://github.com/vikkieessien)
