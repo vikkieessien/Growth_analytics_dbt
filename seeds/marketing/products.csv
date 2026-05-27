@@ -1,0 +1,4 @@
+product_id,product_name,price_monthly,price_annual,billing_cycle,features,max_users,trial_days,is_active,created_at
+1,Free Plan,0.0,0.0,monthly,basic,1,0,True,2022-01-01
+2,Basic Plan,9.99,99.99,monthly,standard,1,14,True,2022-01-01
+3,Premium Plan,29.99,299.99,monthly,full,5,14,True,2022-01-01

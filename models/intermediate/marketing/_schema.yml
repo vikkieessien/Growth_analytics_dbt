@@ -1,0 +1,44 @@
+version: 2
+
+models:
+  - name: int_customer_acquisition
+    description: "One row per customer with aggregated order metrics and latest subscription status"
+    columns:
+      - name: customer_id
+        description: "Unique customer identifier"
+        tests:
+          - unique
+          - not_null
+      - name: acquisition_channel
+        tests:
+          - not_null
+      - name: net_amount
+        description: "Total revenue minus refunds"
+      - name: subscription_status
+        description: "Most recent subscription status"
+
+  - name: int_campaign_performance
+    description: "One row per campaign with aggregated spend and performance metrics"
+    columns:
+      - name: campaign_id
+        description: "Unique campaign identifier"
+        tests:
+          - unique
+          - not_null
+      - name: total_spend
+        description: "Total ad spend for the campaign"
+      - name: cpa
+        description: "Cost per acquisition"
+
+  - name: int_channel_ltv_cac
+    description: "One row per acquisition channel with LTV and CAC metrics"
+    columns:
+      - name: acquisition_channel
+        description: "Marketing acquisition channel"
+        tests:
+          - unique
+          - not_null
+      - name: cac
+        description: "Customer acquisition cost — total spend divided by total customers"
+      - name: ltv_cac_ratio
+        description: "Average LTV divided by CAC — healthy ratio is above 3"

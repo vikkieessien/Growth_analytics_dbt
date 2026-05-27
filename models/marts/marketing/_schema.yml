@@ -1,0 +1,42 @@
+version: 2
+
+models:
+  - name: mart_channel_performance
+    description: "Final channel-level performance table for Tableau dashboard. One row per acquisition channel."
+    columns:
+      - name: acquisition_channel
+        description: "Marketing acquisition channel"
+        tests:
+          - unique
+          - not_null
+      - name: cac
+        description: "Customer acquisition cost"
+      - name: avg_ltv
+        description: "Average customer lifetime value"
+      - name: ltv_cac_ratio
+        description: "LTV divided by CAC — the core efficiency metric"
+      - name: churn_rate
+        description: "Churned customers divided by total customers"
+      - name: activation_rate
+        description: "Active subscribers divided by total customers"
+      - name: revenue_per_spend
+        description: "Total revenue divided by total spend"
+
+  - name: mart_customer_segments
+    description: "Final customer-level table for Tableau dashboard. One row per customer with value and churn risk segments."
+    columns:
+      - name: customer_id
+        description: "Unique customer identifier"
+        tests:
+          - unique
+          - not_null
+      - name: value_segment
+        description: "Customer value tier based on net revenue"
+        tests:
+          - accepted_values:
+              values: ['high_value', 'mid_value', 'low_value']
+      - name: churn_risk
+        description: "Churn risk flag based on subscription status"
+        tests:
+          - accepted_values:
+              values: ['high_risk', 'low_risk', 'unknown']

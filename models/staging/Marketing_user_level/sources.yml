@@ -3,14 +3,14 @@ version: 2
 sources:
   - name: dbt_practice
     database: primal-stock-471621-b6
-    schema: dbt_practice
+    schema: growth_analytics
     tables:
       - name: synthetic_daily_revenue
 
   - name: marketing_raw
     database: primal-stock-471621-b6
-    schema: dbt_practice
+    schema: growth_analytics
     tables:
       - name: profiles
-      - name: Payments
-      - name: Activity
+      - name: payments
+      - name: activity

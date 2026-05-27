@@ -1,0 +1,12 @@
+version: 2
+
+sources:
+  - name: marketing
+    schema: growth_analytics_marketing_raw
+    tables:
+      - name: customers
+      - name: orders
+      - name: campaigns
+      - name: ad_spend
+      - name: subscriptions
+      - name: products

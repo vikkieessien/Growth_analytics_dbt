@@ -1,0 +1,83 @@
+version: 2
+
+models:
+  - name: stg_customers
+    description: "Cleaned customer data with acquisition channel and signup info"
+    columns:
+      - name: customer_id
+        description: "Unique customer identifier"
+        tests:
+          - unique
+          - not_null
+      - name: acquisition_channel
+        description: "Marketing channel that acquired the customer"
+        tests:
+          - not_null
+      - name: signup_date
+        tests:
+          - not_null
+
+  - name: stg_orders
+    description: "Cleaned order transactions with net revenue calculated"
+    columns:
+      - name: order_id
+        description: "Unique order identifier"
+        tests:
+          - unique
+          - not_null
+      - name: customer_id
+        tests:
+          - not_null
+      - name: order_amount
+        tests:
+          - not_null
+
+  - name: stg_campaigns
+    description: "Marketing campaign metadata"
+    columns:
+      - name: campaign_id
+        description: "Unique campaign identifier"
+        tests:
+          - unique
+          - not_null
+      - name: channel
+        tests:
+          - not_null
+
+  - name: stg_ad_spend
+    description: "Daily ad spend by campaign with performance metrics"
+    columns:
+      - name: spend_id
+        description: "Unique spend record identifier"
+        tests:
+          - unique
+          - not_null
+      - name: campaign_id
+        tests:
+          - not_null
+
+  - name: stg_subscriptions
+    description: "Customer subscription records with plan and status"
+    columns:
+      - name: subscription_id
+        description: "Unique subscription identifier"
+        tests:
+          - unique
+          - not_null
+      - name: customer_id
+        tests:
+          - not_null
+      - name: status
+        tests:
+          - not_null
+          - accepted_values:
+              values: ['active', 'cancelled', 'churned', 'upgraded', 'downgraded']
+
+  - name: stg_products
+    description: "Product catalogue with pricing tiers"
+    columns:
+      - name: product_id
+        description: "Unique product identifier"
+        tests:
+          - unique
+          - not_null

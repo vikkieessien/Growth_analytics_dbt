@@ -1,5 +1,5 @@
 with payment_data as (
-    select * from {{ source('marketing_raw', 'Payments') }}
+    select * from {{ source('marketing_raw', 'payments') }}
 ),
 final as (
     select

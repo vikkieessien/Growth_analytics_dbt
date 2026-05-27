@@ -1,5 +1,5 @@
 with users_activity as (
-    select * from {{ source('marketing_raw', 'Activity') }}
+    select * from {{ source('marketing_raw', 'activity') }}
 ),
 final as (
     select

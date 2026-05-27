@@ -1,0 +1,15 @@
+version: 2
+
+seeds:
+  - name: profiles
+    config:
+      column_types:
+        profile_id: string
+  - name: payments
+    config:
+      column_types:
+        profile_id: string
+  - name: activity
+    config:
+      column_types:
+        profile_id: string
